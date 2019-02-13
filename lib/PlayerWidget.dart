@@ -20,51 +20,55 @@ class PlayerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
-      child: FlatButton(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              this.name,
-              textAlign: TextAlign.left,
-              style: Theme.of(context).textTheme.display1,
-            ),
-            Text(
-              '$score',
-              style: Theme.of(context).textTheme.display1,
-            ),
-            ButtonTheme(
-              minWidth: 36.0,
-              shape: CircleBorder(),
-              padding: EdgeInsets.all(0.0),
-              child: Row(
-                children: <Widget>[
-                  RaisedButton(
-                      child: Text('-5'),
-                      onPressed: () {
-                        onIncrementScore(-5);
-                      }),
-                  RaisedButton(
-                      child: Text('-1'),
-                      onPressed: () {
-                        onIncrementScore(-1);
-                      }),
-
-                  RaisedButton(
-                      child: Text('+1'),
-                      onPressed: () {
-                        onIncrementScore(1);
-                      }),
-                  RaisedButton(
-                      child: Text('+5'),
-                      onPressed: () {
-                        onIncrementScore(5);
-                      }),
-                ],
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Text(
+                name,
+                style: TextStyle(fontSize: 18.0),
               ),
+            ],
+          ),
+          Text(
+            'Score: $score',
+            style: TextStyle(fontSize: 24.0),
+          ),
+          ButtonTheme(
+            minWidth: 36.0,
+            shape: CircleBorder(),
+            padding: EdgeInsets.all(0.0),
+            child: Row(
+              children: <Widget>[
+                RaisedButton(
+                    child: Text('-5'),
+                    color: Colors.red,
+                    onPressed: () {
+                      onIncrementScore(-5);
+                    }),
+                RaisedButton(
+                    child: Text('-1'),
+                    color: Colors.red,
+                    onPressed: () {
+                      onIncrementScore(-1);
+                    }),
+                RaisedButton(
+                    child: Text('+1'),
+                    color: Colors.green,
+                    onPressed: () {
+                      onIncrementScore(1);
+                    }),
+                RaisedButton(
+                    child: Text('+5'),
+                    color: Colors.green,
+                    onPressed: () {
+                      onIncrementScore(5);
+                    }),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

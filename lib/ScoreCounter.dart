@@ -37,17 +37,18 @@ class _ScoreCounterPageState extends State<ScoreCounterPage> {
         title: Text(widget.title),
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 0.0),
         children: _players
-            .map((p) => PlayerWidget(
-                  name: p.name,
-                  score: p.score,
-                  onIncrementScore: (incrementBy) {
-                    setState(() {
-                      p.score += incrementBy;
-                    });
-                  },
-                ))
+            .map(
+              (p) => PlayerWidget(
+                    name: p.name,
+                    score: p.score,
+                    onIncrementScore: (incrementBy) {
+                      setState(() {
+                        p.score += incrementBy;
+                      });
+                    },
+                  ),
+            )
             .toList(),
       ),
       floatingActionButton: FloatingActionButton(
